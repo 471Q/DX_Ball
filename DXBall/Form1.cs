@@ -15,7 +15,7 @@ namespace DXBall
 {
 	public partial class Form1 : Form
 	{
-		// for play / pause
+		// for play and pause
 		static bool conti = true;
 		static bool samePause = false;
 

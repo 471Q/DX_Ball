@@ -32,7 +32,7 @@
 			this.gameTimer = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
-			// gameTimer
+			// gameTimer;
 			// 
 			this.gameTimer.Enabled = true;
 			this.gameTimer.Interval = 20;
