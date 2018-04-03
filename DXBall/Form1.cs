@@ -14,11 +14,11 @@ using System.Runtime.InteropServices;
 namespace DXBall
 {
 	/// <summary>
-	/// Form1.
+	///
 	/// </summary>
 	public partial class Form1 : Form
 	{
-		// for play and pause
+		// Declared for play and pause game 
 		static bool conti = true;
 		static bool samePause = false;
 
@@ -222,9 +222,10 @@ namespace DXBall
 		}
 
 
-		// ------------------------------ start mangu logic ------------------------------ //
+		// ------------------------------ Start Menu logic ------------------------------ //
 		private void GameTimerTick(object sender, EventArgs e)
 		{
+            // if statement to pause screen
 			if (conti)
 			{
 				if (!GameOver && !MainMenuOpening && !MainMenu && !LevelFinished && !samePause)
@@ -287,25 +288,29 @@ namespace DXBall
 			}
 		}
 
-
+        /// <summary>
+        /// Form1 Keys to enter pause menu
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
 		private void Form1_KeyUp(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Escape)
 			{
-				// if count is true
+				// if counti is true 
 				if (conti)
 				{
-					conti = !conti; // make counti false
+					conti = !conti; // make counti value false
 					Cursor.Show();
 				}
 			}
 
 			if (e.KeyCode == Keys.P)
 			{
-				samePause = !samePause;
+				samePause = !samePause; 
 			}
 		}
-		// ------------------------------ end mangu logic ------------------------------ //
+		// ------------------------------ end menu logic ------------------------------ //
 
 		private void CreateBackBuffer(object sender, EventArgs e) //Form1_Load ve Form1_Resize
 		{
@@ -482,14 +487,14 @@ namespace DXBall
 				return;
 			}
 
-			// ------------------------------ start mangu logic ------------------------------ //
+			// ------------------------------ start menu logic ------------------------------ //
 			if (!conti)
 			{
 				if (playTitle.PositionInHere(e.X, e.Y)) { conti = !conti; Cursor.Hide(); }
 				else if (exitTitle.PositionInHere(e.X, e.Y)) { Environment.Exit(0); }
 				return;
 			}
-			// ------------------------------ end mangu logic ------------------------------ //
+			// ------------------------------ end meny logic ------------------------------ //
 
 			if (balls == null) return;
 			foreach (Ball ball in balls) { ball.AtStartPosition = false; }
