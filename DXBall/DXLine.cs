@@ -7,6 +7,9 @@ using System.Drawing;
 
 namespace DXBall
 {
+	/// <summary>
+	/// Class for Paddel
+	/// </summary>
     class DXLine
     {
         private float posX, posY;
@@ -19,14 +22,22 @@ namespace DXBall
 
         private Bitmap resPicture;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:DXBall.DXLine"/> class.
+		/// </summary>
+		/// <param name="_posX">Position x.</param>
+		/// <param name="_posY">Position y.</param>
         public DXLine(float _posX, float _posY)
         {
             resPicture = Properties.Resources.linenormal;
             lineBrush = new TextureBrush(resPicture);
             lineBrush.TranslateTransform(posX, posY);
-            lineRectangle = new RectangleF(_posX, _posY, 128f, 32f); posX = _posX; posY = _posY;
+            lineRectangle = new RectangleF(_posX, _posY, 128f, 32f/2); posX = _posX; posY = _posY;
         }
 
+		/// <summary>
+		/// Moves the line.
+		/// </summary>
         public void MoveLine()
         {
             if (posX < 64f) posX = 64f;

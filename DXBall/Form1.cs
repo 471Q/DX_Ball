@@ -13,6 +13,9 @@ using System.Runtime.InteropServices;
 
 namespace DXBall
 {
+	/// <summary>
+	/// Form1.
+	/// </summary>
 	public partial class Form1 : Form
 	{
 		// for play and pause
@@ -35,6 +38,9 @@ namespace DXBall
 		private static IntPtr fontBuffer;
 		private bool GameOver, MainMenu, MainMenuOpening, LevelFinished;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:DXBall.Form1"/> class.
+		/// </summary>
 		public Form1()
 		{
 			InitializeComponent();
@@ -58,6 +64,9 @@ namespace DXBall
 			//StartGame();
 		}
 
+		/// <summary>
+		/// Mains the menu objects.
+		/// </summary>
 		private void MainMenuObjects()
 		{
 			MainMenu = false; MainMenuOpening = true; LevelFinished = false;
@@ -93,12 +102,15 @@ namespace DXBall
 			MainTitleFont = new Font(fontFamily, 70f);
 		}
 
+		/// <summary>
+		/// Starts the game.
+		/// </summary>
 		private void StartGame()
 		{
 			Cursor.Hide();
 			GameOver = false; MainMenu = false; MainMenuOpening = false; LevelFinished = false;
 			Score = 0; Life = 3; Level = 1; ScoreOnBoard = 0;
-			line = new DXLine(400f, 640f);
+			line = new DXLine(400f, 707f);
 
 			walls = new List<DXWall>();
 			walls.Add(new DXWall(WallType.Vertical, 48f, 120f));
@@ -119,7 +131,9 @@ namespace DXBall
 			balls[0].AddRectanglesOfWalls(walls);
 			balls[0].Boxes = boxes;
 		}
-
+		/// <summary>
+		/// Nexts the level.
+		/// </summary>
 		private void NextLevel()
 		{
 			LevelFinished = false; GameOver = false; MainMenu = false; MainMenuOpening = false;
@@ -158,6 +172,9 @@ namespace DXBall
 			animations.Add(anm);
 		}
 
+		/// <summary>
+		/// Loads the animations.
+		/// </summary>
 		private void LoadAnimations()
 		{
 			DXTiledTexture tiledTextureRedBroke = new DXTiledTexture(Properties.Resources.redbroke, 5, 4);
@@ -187,7 +204,11 @@ namespace DXBall
 
 		private void PutBoxes()
 		{ foreach (DXBox _box in boxes) { _box.PutBox(); } }
-
+		/// <summary>
+		/// When ,ouse is move.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
 		private void Mouse_Move(object sender, MouseEventArgs e)
 		{
 			if (MainMenu || !conti)
@@ -224,6 +245,9 @@ namespace DXBall
 			}
 		}
 
+		/// <summary>
+		/// Resumes the screen.
+		/// </summary>
 		private void resumeScreen()
 		{
 			if (bitmapBuffer != null)
