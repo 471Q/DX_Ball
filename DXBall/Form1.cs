@@ -24,7 +24,7 @@ namespace DXBall
 
 		private Bitmap bitmapBuffer;
 
-		private PXTitle mainTitle, playTitle, highScoresTitle, exitTitle;
+		private PXTitle mainTitle, playTitle, highScoresTitle, exitTitle, highScoresTitle1;
 		private List<DXBox> boxes;
 		private List<Ball> balls;
 		private List<DXWall> walls;
@@ -78,6 +78,8 @@ namespace DXBall
 			highScoresTitle.Alpha = 120; highScoresTitle.TitleFont = UpBoardFont; highScoresTitle.X = 300; highScoresTitle.Y = 500;
 			exitTitle = new PXTitle(Color.FromArgb(255, 0, 255), Color.FromArgb(0, 255, 255), 500f, 0f, 960f, 100f);
 			exitTitle.Alpha = 120; exitTitle.TitleFont = UpBoardFont; exitTitle.X = 600; exitTitle.Y = 600;
+			highScoresTitle1 = new PXTitle(Color.FromArgb(255, 255, 0), Color.FromArgb(0, 0, 255), 100f, 0f, 800f, 100f);
+			highScoresTitle1.Alpha = 120; highScoresTitle.TitleFont = UpBoardFont; highScoresTitle.X = 300; highScoresTitle.Y = 500;
 		}
 
 		void mainTitle_AlphaIsMax(object sender, EventArgs e)
@@ -288,6 +290,29 @@ namespace DXBall
 			}
 		}
 
+		/// <summary>
+		/// Shows the High score
+		/// </summary>
+		private void ShowHighScore()
+		{
+
+			if (bitmapBuffer != null)
+			{
+				Graphics graphics = Graphics.FromImage(bitmapBuffer);
+				graphics.Clear(Color.Black);
+
+				SizeF Player = graphics.MeasureString("Player 1:", UpBoardFont);
+				graphics.DrawString("Player 1: " + ScoreOnBoard, UpBoardFont, highScoresTitle.TitleBrush, new Point(highScoresTitle1.X, highScoresTitle1.Y));
+				highScoresTitle1.X = 0;
+				highScoresTitle1.Y = 0;
+				highScoresTitle1.Width = (int)Player.Width; highScoresTitle1.Height = (int)Player.Height;
+
+				Invalidate();
+				MainMenu = false;
+				return;
+			}
+			//Console.ReadKey();		}
+
         /// <summary>
         /// Form1 Keys to enter pause menu
         /// </summary>
@@ -484,6 +509,10 @@ namespace DXBall
 			{
 				if (playTitle.PositionInHere(e.X, e.Y)) { StartGame(); }
 				else if (exitTitle.PositionInHere(e.X, e.Y)) { Environment.Exit(0); }
+				else if (highScoresTitle.PositionInHere(e.X, e.Y))
+				{
+					MessageBox.Show("NO highscore");
+				}
 				return;
 			}
 
@@ -492,6 +521,11 @@ namespace DXBall
 			{
 				if (playTitle.PositionInHere(e.X, e.Y)) { conti = !conti; Cursor.Hide(); }
 				else if (exitTitle.PositionInHere(e.X, e.Y)) { Environment.Exit(0); }
+				else if (highScoresTitle.PositionInHere(e.X, e.Y))
+				{
+					//highScore = true;
+					ShowHighScore();
+				}
 				return;
 			}
 			// ------------------------------ end meny logic ------------------------------ //
