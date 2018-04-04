@@ -21,6 +21,8 @@ namespace DXBall
 		// Declared for play and pause game 
 		static bool conti = true;
 		static bool samePause = false;
+		static bool highScore = false;
+		static bool check = false;
 
 		private Bitmap bitmapBuffer;
 
@@ -227,7 +229,8 @@ namespace DXBall
 		// ------------------------------ Start Menu logic ------------------------------ //
 		private void GameTimerTick(object sender, EventArgs e)
 		{
-            // if statement to pause screen
+			// if statement to pause screen
+
 			if (conti)
 			{
 				if (!GameOver && !MainMenuOpening && !MainMenu && !LevelFinished && !samePause)
@@ -238,16 +241,25 @@ namespace DXBall
 					IsBallsFalled();
 					IsBoxesBroken();
 				}
-
 				Draw();
+			}
+
+			else if (highScore)
+			{
+                ShowHighScore();
+				if (check)
+				{
+					highScore = false;
+				}
 			}
 
 			else
 			{
 				resumeScreen();
 			}
-		}
 
+			check = false;
+		}
 		/// <summary>
 		/// Resumes the screen.
 		/// </summary>
@@ -303,8 +315,8 @@ namespace DXBall
 
 				SizeF Player = graphics.MeasureString("Player 1:", UpBoardFont);
 				graphics.DrawString("Player 1: " + ScoreOnBoard, UpBoardFont, highScoresTitle.TitleBrush, new Point(highScoresTitle1.X, highScoresTitle1.Y));
-				highScoresTitle1.X = 0;
-				highScoresTitle1.Y = 0;
+				highScoresTitle1.X = 30;
+				highScoresTitle1.Y = 30;
 				highScoresTitle1.Width = (int)Player.Width; highScoresTitle1.Height = (int)Player.Height;
 
 				Invalidate();
@@ -320,11 +332,13 @@ namespace DXBall
         /// <param name="e">E.</param>
 		private void Form1_KeyUp(object sender, KeyEventArgs e)
 		{
+			
 			if (e.KeyCode == Keys.Escape)
 			{
+				check = true;
 				// if counti is true 
 				if (conti)
-				{
+				{	
 					conti = !conti; // make counti value false
 					Cursor.Show();
 				}
@@ -335,6 +349,7 @@ namespace DXBall
 				samePause = !samePause; 
 			}
 		}
+
 		// ------------------------------ end menu logic ------------------------------ //
 
 		private void CreateBackBuffer(object sender, EventArgs e) //Form1_Load ve Form1_Resize
@@ -523,8 +538,7 @@ namespace DXBall
 				else if (exitTitle.PositionInHere(e.X, e.Y)) { Environment.Exit(0); }
 				else if (highScoresTitle.PositionInHere(e.X, e.Y))
 				{
-					//highScore = true;
-					ShowHighScore();
+					highScore = true;
 				}
 				return;
 			}
