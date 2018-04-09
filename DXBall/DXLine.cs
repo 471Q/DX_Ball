@@ -13,12 +13,22 @@ namespace DXBall
 	class DXLine
 	{
 		private float posX, posY;
-		public float PosX { get { return posX; } set { posX = value; } }
+		public float PosX 
+        { 
+            get { return posX; } 
+            set { posX = value; } 
+        }
 		public float PosY { get { return posY; } set { posY = value; } }
 		private TextureBrush lineBrush;
 		private RectangleF lineRectangle;
-		public TextureBrush LineBrush { get { return lineBrush; } }
-		public RectangleF LineRectangle { get { return lineRectangle; } }
+		public TextureBrush LineBrush 
+        { 
+            get { return lineBrush; } 
+        }
+		public RectangleF LineRectangle 
+        { 
+            get { return lineRectangle; }
+        }
 
 		private bool moveRight, moveLeft;
 

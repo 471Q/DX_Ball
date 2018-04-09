@@ -12,12 +12,26 @@ namespace DXBall
     class DXWall
     {
         private float posX, posY;
-        public float PosX { get { return posX; } set { posX = value; } }
-        public float PosY { get { return posY; } set { posY = value; } }
+        public float PosX 
+        {
+            get { return posX; } 
+            set { posX = value; } 
+        }
+        public float PosY 
+        { 
+            get { return posY; } 
+            set { posY = value; } 
+        }
         private TextureBrush wallBrush;
         private RectangleF wallRectangle;
-        public TextureBrush WallBrush { get { return wallBrush; } }
-        public RectangleF WallRectangle { get { return wallRectangle; } }
+        public TextureBrush WallBrush 
+        { 
+            get { return wallBrush; } 
+        }
+        public RectangleF WallRectangle 
+        { 
+            get { return wallRectangle; }
+        }
 
         private Bitmap resPicture;
 

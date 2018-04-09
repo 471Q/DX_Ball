@@ -13,20 +13,55 @@ namespace DXBall
 	{
 		private float posX, posY, velX, velY, vel, detVel, maxVel;
 		private double angle;
-		public float PosX { get { return posX; } }
-		public float PosY { get { return posY; } }
-		public float MaxVelocity { get { return maxVel; } set { maxVel = value; } }
-		public double Angle { get { return angle; } }
-		public bool FalledDown { get; set; }
-		public bool AtStartPosition { get; set; }
+		public float PosX 
+        { 
+            get { return posX; }
+        }
+		public float PosY
+        { 
+            get { return posY; } 
+        }
+		public float MaxVelocity
+        { 
+            get { return maxVel; } 
+            set { maxVel = value; }
+        }
+		public double Angle 
+        { 
+            get { return angle; } 
+        }
+		public bool FalledDown 
+        { 
+            get;
+            set;
+        }
+		public bool AtStartPosition
+        { 
+            get;
+            set; 
+        }
 		private TextureBrush ballBrush;
 		private RectangleF ballRectangle;
 		private List<DXBox> _boxes;
 		private DXLine _line;
-		public TextureBrush BallBrush { get { return ballBrush; } }
-		public RectangleF BallRectangle { get { return ballRectangle; } }
-		public List<RectangleF> OtherRectangles { get; set; }
-		public List<DXBox> Boxes { get { return _boxes; } set { _boxes = value; } }
+		public TextureBrush BallBrush 
+        { 
+            get { return ballBrush; } 
+        }
+		public RectangleF BallRectangle 
+        { 
+            get { return ballRectangle; }
+        }
+		public List<RectangleF> OtherRectangles 
+        { 
+            get; 
+            set; 
+        }
+		public List<DXBox> Boxes 
+        { 
+            get { return _boxes; }
+            set { _boxes = value; }
+        }
 
 		public event EventHandler BrokeBox;
 		public event EventHandler TouchLine;
@@ -243,7 +278,10 @@ namespace DXBall
 			if (angle < 0) angle += 2 * Math.PI;
 			if (posY > _line.PosY + 32f) FalledDown = true;
 			touchedLine = false;
-			if (AtStartPosition) { ToStartPosition(); }
+			if (AtStartPosition) 
+            { 
+                ToStartPosition(); 
+            }
 			ballBrush.ResetTransform();
 			ballBrush.TranslateTransform(posX, posY);
 			ballRectangle.X = posX; ballRectangle.Y = posY;

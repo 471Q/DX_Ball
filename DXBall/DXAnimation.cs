@@ -10,23 +10,45 @@ namespace DXBall
     class DXAnimation
     {
         private float posX, posY;
-        public float PosX { get { return posX; } set { posX = value; } }
-        public float PosY { get { return posY; } set { posY = value; } }
+        public float PosX 
+        { 
+            get { return posX; } 
+            set { posX = value; }
+        }
+        public float PosY 
+        { 
+            get { return posY; } 
+            set { posY = value; }
+        }
         private DXTiledTexture tiledTexture;
         private int currentTile;
         private RectangleF animationRectangle;
-        public RectangleF AnimationRectangle { get { return animationRectangle; } }
-        public bool Over { get; set; }
-        public bool Visible { get; set; }
+        public RectangleF AnimationRectangle 
+        { 
+            get { return animationRectangle; } 
+        }
+        public bool Over 
+        { 
+            get; 
+            set; 
+        }
+        public bool Visible 
+        { 
+            get; 
+            set; 
+        }
 
         public event EventHandler AnimationTurned;
 
         public DXAnimation(float _posX, float _posY, DXTiledTexture _tiledTexture)
         {
-            posX = _posX; posY = _posY;
+            posX = _posX; 
+            posY = _posY;
             animationRectangle = new RectangleF(_posX, _posY, _tiledTexture.TileWidth, _tiledTexture.TileHeight);
             tiledTexture = _tiledTexture;
-            Over = false; currentTile = 0; Visible = false;
+            Over = false; 
+            currentTile = 0; 
+            Visible = false;
         }
 
         public void OnAnimationTurned()
@@ -40,8 +62,14 @@ namespace DXBall
             TextureBrush ret = tiledTexture.GetBrush(currentTile);
             ret.ResetTransform();
             ret.TranslateTransform(posX, posY);
-            animationRectangle.X = posX; animationRectangle.Y = posY;
-            currentTile++; if (currentTile == tiledTexture.TilesLength) { currentTile = 0; OnAnimationTurned(); }
+            animationRectangle.X = posX; 
+            animationRectangle.Y = posY;
+            currentTile++; 
+            if (currentTile == tiledTexture.TilesLength) 
+            { 
+                currentTile = 0;
+                OnAnimationTurned();
+            }
             return ret;
         }
 
