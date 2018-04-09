@@ -71,7 +71,9 @@ namespace DXBall
 		/// </summary>
 		private void MainMenuObjects()
 		{
-			MainMenu = false; MainMenuOpening = true; LevelFinished = false;
+			MainMenu = false; 
+			MainMenuOpening = true; 
+			LevelFinished = false;
 			mainTitle = new PXTitle(Color.FromArgb(255, 0, 0), Color.FromArgb(0, 255, 0), 100f, 0f, 800f, 100f);
 			mainTitle.AlphaIsMax += mainTitle_AlphaIsMax;
 			playTitle = new PXTitle(Color.FromArgb(255, 255, 0), Color.FromArgb(0, 0, 255), 100f, 0f, 800f, 100f);
@@ -112,8 +114,14 @@ namespace DXBall
 		private void StartGame()
 		{
 			Cursor.Hide();
-			GameOver = false; MainMenu = false; MainMenuOpening = false; LevelFinished = false;
-			Score = 0; Life = 3; Level = 1; ScoreOnBoard = 0;
+			GameOver = false; 
+			MainMenu = false; 
+			MainMenuOpening = false; 
+			LevelFinished = false;
+			Score = 0; 
+			Life = 3; 
+			Level = 2; 
+			ScoreOnBoard = 0;
 			line = new DXLine(400f, 707f);
 
 			walls = new List<DXWall>();
@@ -123,8 +131,10 @@ namespace DXBall
 
 			balls = new List<Ball>();
 			Ball b = new Ball(0f, 0f);
-			b.BrokeBox += b_BrokeBox; b.TouchLine += b_TouchLine;
-			b.SetDeterminateVelocity(15f, 0.25f, -Math.PI * 0.75); b.MaxVelocity = 30f;
+			b.BrokeBox += b_BrokeBox; //turn off/on animations
+			b.TouchLine += b_TouchLine;
+			b.SetDeterminateVelocity(15f, 0.25f, -Math.PI * 0.75); 
+			b.MaxVelocity = 30f;
 			balls.Add(b);
 
 			boxes = DXLevels.OpenLevel(Level);
@@ -140,7 +150,10 @@ namespace DXBall
 		/// </summary>
 		private void NextLevel()
 		{
-			LevelFinished = false; GameOver = false; MainMenu = false; MainMenuOpening = false;
+			LevelFinished = false; 
+			GameOver = false; 
+			MainMenu = false; 
+			MainMenuOpening = false;
 			Level++;
 			balls[0].AtStartPosition = true; balls[0].ToStartPosition();
 			balls[0].SetDeterminateVelocity(15f + (0.5f * Level), 0.25f, -Math.PI * 0.75);
@@ -171,7 +184,8 @@ namespace DXBall
 				case BoxKind.White: anm = breakingAnimations[6].Clone(); break;
 			}
 			if (anm == null) return;
-			anm.PosX = box.PosX - 32f; anm.PosY = box.PosY - 8f;
+			anm.PosX = box.PosX - 32f; 
+			anm.PosY = box.PosY - 8f;
 			anm.Visible = true;
 			animations.Add(anm);
 		}
@@ -199,17 +213,30 @@ namespace DXBall
 			breakingAnimations[6] = new DXAnimation(0f, 0f, tiledTextureWhiteBroke);
 
 			int i = 0;
-			while (i < 7) { breakingAnimations[i].AnimationTurned += breakingAnimation_AnimationTurned; i++; }
+			while (i < 7) 
+			{ 
+				breakingAnimations[i].AnimationTurned += breakingAnimation_AnimationTurned; i++; 
+			}
+
 			animations = new List<DXAnimation>();
 		}
 
 		void breakingAnimation_AnimationTurned(object sender, EventArgs e)
-		{ DXAnimation anm = (DXAnimation)sender; anm.Visible = false; }
+		{ 
+			DXAnimation anm = (DXAnimation)sender; 
+			anm.Visible = false; 
+		}
 
 		private void PutBoxes()
-		{ foreach (DXBox _box in boxes) { _box.PutBox(); } }
+		{ 
+			foreach (DXBox _box in boxes) 
+			{ 
+				_box.PutBox(); 
+			} 
+		}
+
 		/// <summary>
-		/// When ,ouse is move.
+		/// When the mouse is moved.
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">E.</param>
@@ -222,7 +249,7 @@ namespace DXBall
 				exitTitle.Focused = exitTitle.PositionInHere(e.X, e.Y);
 			}
 			if (line == null) return;
-			line.PosX = e.X - 64;
+			line.PosX = e.X;
 		}
 
 
@@ -322,8 +349,7 @@ namespace DXBall
 				Invalidate();
 				MainMenu = false;
 				return;
-			}
-			//Console.ReadKey();		}
+			}		}
 
         /// <summary>
         /// Form1 Keys to enter pause menu
@@ -332,21 +358,47 @@ namespace DXBall
         /// <param name="e">E.</param>
 		private void Form1_KeyUp(object sender, KeyEventArgs e)
 		{
-			
-			if (e.KeyCode == Keys.Escape)
+			switch (e.KeyCode)
 			{
-				check = true;
-				// if counti is true 
-				if (conti)
-				{	
-					conti = !conti; // make counti value false
-					Cursor.Show();
-				}
+				case Keys.Escape :
+					{
+						if (e.KeyCode == Keys.Escape)
+						{
+							check = true;
+							// if counti is true 
+							if (conti)
+							{	
+								conti = !conti; // make counti value false
+								Cursor.Show();
+							}
+						}
+					}
+					break;
+				case Keys.P : samePause = !samePause;
+					break;
+				case Keys.Right : line.MoveRight = false;
+					break;
+				case Keys.Left : line.MoveLeft = false;
+					break;
 			}
+		}
 
-			if (e.KeyCode == Keys.P)
+		private void Key_Down(object sender, KeyEventArgs e)
+		{
+			switch (e.KeyCode)
 			{
-				samePause = !samePause; 
+				case Keys.Right : line.MoveRight = true;
+					break;
+				case Keys.Left : line.MoveLeft = true;
+					break;
+					case Keys.Up :
+					{
+						foreach (Ball ball in balls)
+						{
+							ball.AtStartPosition = false;
+						}
+					}
+					break;
 			}
 		}
 
@@ -354,8 +406,7 @@ namespace DXBall
 
 		private void CreateBackBuffer(object sender, EventArgs e) //Form1_Load ve Form1_Resize
 		{
-			if (bitmapBuffer != null)
-				bitmapBuffer.Dispose();
+			if (bitmapBuffer != null) bitmapBuffer.Dispose();
 			bitmapBuffer = new Bitmap(ClientSize.Width, ClientSize.Height);
 		}
 
@@ -371,27 +422,69 @@ namespace DXBall
 		private void DeleteGoneObjects()
 		{
 			int i = 0, c = boxes.Count;
-			while (i < c) { if (boxes[i].Broken) { boxes.RemoveAt(i); c--; } i++; }
+			while (i < c) 
+			{ 
+				if (boxes[i].Broken) 
+				{ 
+					boxes.RemoveAt(i); 
+					c--; 
+				} 
+				i++; 
+			}
+
 			i = 0; c = animations.Count;
-			while (i < c) { if (!animations[i].Visible) { animations.RemoveAt(i); c--; } i++; }
-			i = 0; c = balls.Count;
-			while (i < c) { if (balls[i].FalledDown && c != 1) { balls.RemoveAt(i); c--; } i++; }
+			while (i < c) 
+			{ 
+				if (!animations[i].Visible) 
+				{ 
+					animations.RemoveAt(i); c--; 
+				} 
+				i++; 
+			}
+
+			i = 0; 
+			c = balls.Count;
+
+			while (i < c) 
+			{ 
+				if (balls[i].FalledDown && c != 1) 
+				{ 
+					balls.RemoveAt(i); c--; 
+				} 
+
+				i++; 
+			}
 		}
 
 		private void IsBallsFalled()
 		{
 			bool allFalled = true;
-			foreach (Ball ball in balls) { allFalled = allFalled && ball.FalledDown; }
+			foreach (Ball ball in balls) 
+			{ 
+				allFalled = allFalled && ball.FalledDown; 
+			}
 			if (allFalled)
 			{
-				if (Life == 0) { GameOver = true; Cursor.Show(); }
-				else { balls[0].FalledDown = false; balls[0].AtStartPosition = true; balls[0].ToStartPosition(); Life--; }
+				if (Life == 0) 
+				{ 
+					GameOver = true; Cursor.Show(); 
+				}
+				else 
+				{
+					balls[0].FalledDown = false;
+					balls[0].AtStartPosition = true;
+					balls[0].ToStartPosition();
+					Life--;
+				}
 			}
 		}
 
 		private void IsBoxesBroken()
 		{
-			if (boxes.Count == 0) { LevelFinished = true; }
+			if (boxes.Count == 0) 
+			{ 
+				LevelFinished = true; 
+			}
 		}
 
 		private void Draw()
@@ -413,6 +506,7 @@ namespace DXBall
 					Invalidate();
 					return;
 				}
+
 				if (MainMenu)
 				{
 					SizeF titleTextSize = graphics.MeasureString("DX Ball", MainTitleFont);
@@ -448,6 +542,7 @@ namespace DXBall
 				else if (ScoreOnBoard < Score - 100) ScoreOnBoard += 10;
 				else if (ScoreOnBoard < Score) ScoreOnBoard++;
 				else if (ScoreOnBoard > Score) ScoreOnBoard = Score;
+
 				graphics.DrawString(String.Format("Score: {0}", ScoreOnBoard),
 					UpBoardFont, Brushes.GreenYellow, new PointF(64f, 32f));
 
@@ -513,17 +608,30 @@ namespace DXBall
 
 		private void Mouse_Click(object sender, MouseEventArgs e)
 		{
-			if (LevelFinished) { NextLevel(); return; }
+			if (LevelFinished) 
+			{ 
+				NextLevel(); 
+				return; 
+			}
 
 			if (GameOver)
 			{
-				MainMenuOpening = true; MainMenu = false; GameOver = false; return;
+				MainMenuOpening = true; 
+				MainMenu = false; 
+				GameOver = false; 
+				return;
 			}
 
 			if (MainMenu)
 			{
-				if (playTitle.PositionInHere(e.X, e.Y)) { StartGame(); }
-				else if (exitTitle.PositionInHere(e.X, e.Y)) { Environment.Exit(0); }
+				if (playTitle.PositionInHere(e.X, e.Y)) 
+				{ 
+					StartGame(); 
+				}
+				else if (exitTitle.PositionInHere(e.X, e.Y)) 
+				{ 
+					Environment.Exit(0); 
+				}
 				else if (highScoresTitle.PositionInHere(e.X, e.Y))
 				{
 					MessageBox.Show("NO highscore");
@@ -534,8 +642,15 @@ namespace DXBall
 			// ------------------------------ start menu logic ------------------------------ //
 			if (!conti)
 			{
-				if (playTitle.PositionInHere(e.X, e.Y)) { conti = !conti; Cursor.Hide(); }
-				else if (exitTitle.PositionInHere(e.X, e.Y)) { Environment.Exit(0); }
+				if (playTitle.PositionInHere(e.X, e.Y)) 
+				{ 
+					conti = !conti; 
+					Cursor.Hide(); 
+				}
+				else if (exitTitle.PositionInHere(e.X, e.Y)) 
+				{ 
+					Environment.Exit(0); 
+				}
 				else if (highScoresTitle.PositionInHere(e.X, e.Y))
 				{
 					highScore = true;
@@ -545,7 +660,10 @@ namespace DXBall
 			// ------------------------------ end meny logic ------------------------------ //
 
 			if (balls == null) return;
-			foreach (Ball ball in balls) { ball.AtStartPosition = false; }
+			foreach (Ball ball in balls) 
+			{ 
+				ball.AtStartPosition = false; 
+			}
 		}
 	}
 }

@@ -119,7 +119,7 @@ namespace DXBall
 					_box.Touched = true;
 				}
 			}
-			GetAwayFromRightAngles();
+			//GetAwayFromRightAngles();
 			posX += velX;
 			posY += velY;
 		}
@@ -167,7 +167,7 @@ namespace DXBall
 		{
 			bool ret = false;
 
-			float left = _rect.Left,
+			float 	left = _rect.Left,
 					right = _rect.Right,
 					top = _rect.Top,
 					bottom = _rect.Bottom;
@@ -204,7 +204,7 @@ namespace DXBall
 				ret = true;
 			}
 
-			float vertDistTop = (top - (posY + 8f)),
+			float 	vertDistTop = (top - (posY + 8f)),
 					vertDistBottom = (bottom - (posY + 8f)),
 					horzDistLeft = (left - (posX + 8f)),
 					horzDistRight = (right - (posX + 8f));
@@ -258,7 +258,10 @@ namespace DXBall
 			posY = _line.PosY - 20f;
 		}
 
-		public void AddRectangleOfLine(DXLine __line) { _line = __line; }
+		public void AddRectangleOfLine(DXLine __line) 
+		{ 
+			_line = __line; 
+		}
 
 		public void AddRectanglesOfWalls(List<DXWall> _walls)
 		{

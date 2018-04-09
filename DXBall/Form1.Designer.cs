@@ -35,7 +35,7 @@
 			// gameTimer;
 			// 
 			this.gameTimer.Enabled = true;
-			this.gameTimer.Interval = 20;
+			this.gameTimer.Interval = 30;
 			this.gameTimer.Tick += new System.EventHandler(this.GameTimerTick);
 			// 
 			// Form1
@@ -54,9 +54,9 @@
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
 			this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Click);
 			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mouse_Move);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Down);
 			this.Resize += new System.EventHandler(this.CreateBackBuffer);
 			this.ResumeLayout(false);
-
 		}
 
 		#endregion
