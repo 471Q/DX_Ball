@@ -92,6 +92,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="DxSounds.cs" />
+    <None Include="Resources\Hit.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

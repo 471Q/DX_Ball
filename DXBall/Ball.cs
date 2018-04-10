@@ -145,6 +145,8 @@ namespace DXBall
 			}
 			foreach (DXBox _box in _boxes)
 			{
+				/// Using DxSounds
+				DXSounds impact = new DXSounds();
 				if (_box.Touched) continue;
 				_box.Broken = BounceRectangleF(_box.BoxRectangle);
 				if (_box.Broken)
@@ -152,6 +154,8 @@ namespace DXBall
 					OnBrokeBox(_box);
 					_box.PosX = -1000f;
 					_box.Touched = true;
+					/// Play Sound when Ball hits the Tile
+					impact.SoundPlay();
 				}
 			}
 			//GetAwayFromRightAngles();
