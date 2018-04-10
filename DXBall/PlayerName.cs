@@ -15,6 +15,7 @@ namespace DXBall
     /// </summary>
     public partial class PlayerName : Form
     {
+		public static string passingName;
         /// <summary>
         /// Player Name input
         /// </summary>
@@ -35,6 +36,7 @@ namespace DXBall
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+			passingName = textBox1.Text;
             Form1 openForm = new Form1();
             openForm.Show();
             Visible = false;
