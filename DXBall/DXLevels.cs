@@ -26,6 +26,7 @@ namespace DXBall
         {
             List<DXBox> ret = new List<DXBox>();
             BoxKind kind = BoxKind.Blue;
+
             int i = 0;
             while (i < 8)
             {
@@ -33,16 +34,58 @@ namespace DXBall
                 while (j < 12)
                 {
                     float _i = i, _j = j;
-                    if (i == 0) { if (j % 2 == 0) { kind = BoxKind.Yellow; } else { kind = BoxKind.Cyan; } }
-                    else if (i % 3 == 1) { if (j % 2 == 0) { kind = BoxKind.Green; } else { kind = BoxKind.Purple; } }
-                    else if (i % 3 == 2) { if (j % 2 == 0) { kind = BoxKind.Red; } else { kind = BoxKind.Blue; } }
-                    else if (i % 3 == 0) { if (j % 2 == 0) { kind = BoxKind.Blue; } else { kind = BoxKind.Red; } }
-                    ret.Add(new DXBox(kind, 96f + _j * 64f, 180f + _i * 32f));
-                    j++;
+
+                    if (i == 0)
+					{ 
+						if (j % 2 == 0) 
+						{ 
+						kind = BoxKind.Yellow; 
+						} 
+						else 
+						{ 
+							kind = BoxKind.Cyan; 
+						} 
+					}
+                    else if (i % 3 == 1) 
+					{ 
+						if (j % 2 == 0) 
+						{ 
+							kind = BoxKind.Green; 
+						} 
+						else 
+						{ 
+							kind = BoxKind.Purple; 
+						} 
+					}
+                    else if (i % 3 == 2) 
+					{ 
+						if (j % 2 == 0) 
+						{ 
+							kind = BoxKind.Red; 
+						} 
+						else 
+						{ 
+							kind = BoxKind.Blue; 
+						} 
+					}
+                    else if (i % 3 == 0) 
+					{ 
+						if (j % 2 == 0) 
+						{ 
+						kind = BoxKind.Blue; 
+						} 
+						else 
+						{ 
+							kind = BoxKind.Red; 
+						} 
+					}
+					ret.Add(new DXBox(kind, 96f + _j * 64f, 180f + _i * 32f));
+					j++;
                 }
                 i++;
             }
-            return ret;
+
+			return ret;
         }
 
         private static List<DXBox> Level2()
@@ -56,6 +99,7 @@ namespace DXBall
                 while (j < 12)
                 {
                     float _i = i, _j = j;
+
                     if ((i % 2 == 0 && j % 2 == 1) || (i % 2 == 1 && j % 2 == 0))
                     {
                         if (i + j <= 8) kind = BoxKind.Yellow;

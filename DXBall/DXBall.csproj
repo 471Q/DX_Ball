@@ -94,6 +94,16 @@
     </Compile>
     <Compile Include="DxSounds.cs" />
     <None Include="Resources\Hit.wav" />
+    <Compile Include="Collectables.cs" />
+    <Compile Include="LengthenLine.cs" />
+    <Compile Include="ShortenLine.cs" />
+    <Compile Include="OneUp.cs" />
+    <None Include="Resources\linelengthened.png" />
+    <None Include="Resources\lineshortened.png" />
+    <Compile Include="DXCollectables.cs" />
+    <None Include="Resources\lengthenline.png" />
+    <None Include="Resources\oneup.png" />
+    <None Include="Resources\shortenline.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -10,6 +10,7 @@
 
 namespace DXBall.Properties {
     using System;
+    using System.Reflection;
     
     
     /// <summary>
@@ -183,9 +184,49 @@ namespace DXBall.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lengthenline {
+            get {
+                object obj = ResourceManager.GetObject("lengthenline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap linelengthened {
+            get {
+                object obj = ResourceManager.GetObject("linelengthened", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap linenormal {
             get {
                 object obj = ResourceManager.GetObject("linenormal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lineshortened {
+            get {
+                object obj = ResourceManager.GetObject("lineshortened", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oneup {
+            get {
+                object obj = ResourceManager.GetObject("oneup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -237,6 +278,16 @@ namespace DXBall.Properties {
             get {
                 object obj = ResourceManager.GetObject("shablagoo", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shortenline {
+            get {
+                object obj = ResourceManager.GetObject("shortenline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

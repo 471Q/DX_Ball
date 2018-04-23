@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{7F70BDE2-7F84-4C5A-BA5C-C17A192DC94B}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.DXBall PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DX_Ball Status">
+    <Files>
+      <File FileName="DXBall\DXCollectables.cs" Line="110" Column="67" />
+      <File FileName="DXBall\Properties\Resources.resx" Line="1" Column="1" />
+      <File FileName="DX_Ball Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>

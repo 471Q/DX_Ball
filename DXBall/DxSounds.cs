@@ -27,7 +27,7 @@ namespace DXBall
 		/// </summary>
 		public void SoundPlay()
 		{
-			System.Media.SoundPlayer player = new System.Media.SoundPlayer("C:\\Users\\Jammus\\Desktop\\Hit.wav");
+			System.Media.SoundPlayer player = new System.Media.SoundPlayer("C:\\Users\\User\\Desktop\\DP1\\DX_Ball\\DXBall\\Resources\\Hit.wav");
 			player.Load();
 			player.Play();
 		}

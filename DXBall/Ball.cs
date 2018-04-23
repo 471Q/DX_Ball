@@ -8,11 +8,11 @@ using System.Drawing.Drawing2D;
 
 namespace DXBall
 {
-
 	class Ball
 	{
 		private float posX, posY, velX, velY, vel, detVel, maxVel;
 		private double angle;
+
 		public float PosX 
         { 
             get { return posX; }
@@ -43,6 +43,7 @@ namespace DXBall
 		private TextureBrush ballBrush;
 		private RectangleF ballRectangle;
 		private List<DXBox> _boxes;
+		private List<Collectables> _collectables;
 		private DXLine _line;
 		public TextureBrush BallBrush 
         { 
@@ -62,6 +63,12 @@ namespace DXBall
             get { return _boxes; }
             set { _boxes = value; }
         }
+
+		public List<Collectables> Collectables
+		{
+			get { return _collectables; }
+			set { _collectables = value; }
+		}
 
 		public event EventHandler BrokeBox;
 		public event EventHandler TouchLine;
@@ -95,7 +102,10 @@ namespace DXBall
 		public void OnBrokeBox(DXBox box)
 		{
 			EventHandler handler = BrokeBox;
-			if (handler != null) { handler(box, EventArgs.Empty); }
+			if (handler != null) 
+			{ 
+				handler(box, EventArgs.Empty); 
+			}
 		}
 
 		/// <summary>
@@ -104,7 +114,10 @@ namespace DXBall
 		public void OnTouchedLine()
 		{
 			EventHandler handler = TouchLine;
-			if (handler != null) { handler(this, EventArgs.Empty); }
+			if (handler != null) 
+			{ 
+				handler(this, EventArgs.Empty); 
+			}
 		}
 
 		/// <summary>
@@ -133,7 +146,10 @@ namespace DXBall
 				OnTouchedLine();
 				touchedLine = true;
 				float lineTouchPositionX = posX - _line.PosX - 56f; //From which point is the ball to the ball
-				if (lineTouchPositionX < -64f) { lineTouchPositionX = -64f; }
+				if (lineTouchPositionX < -64f) 
+				{ 
+					lineTouchPositionX = -64f; 
+				}
 				else if (lineTouchPositionX > 64f) { lineTouchPositionX = 64f; }
 				ChangeAngle(angle + (lineTouchPositionX / 64f) * (Math.PI / 9));
 				IncreaseSpeed();
@@ -143,6 +159,7 @@ namespace DXBall
 			{
 				BounceRectangleF(_rect);
 			}
+
 			foreach (DXBox _box in _boxes)
 			{
 				/// Using DxSounds
@@ -151,14 +168,23 @@ namespace DXBall
 				_box.Broken = BounceRectangleF(_box.BoxRectangle);
 				if (_box.Broken)
 				{
+					foreach (Collectables c in _collectables)
+					{
+						if (Math.Abs(c.PosY - _box.PosY) < 20f && Math.Abs(c.PosX - _box.PosX) < 20f)
+						{
+							c.AtStartPosition = false;
+						}
+					}
+
 					OnBrokeBox(_box);
 					_box.PosX = -1000f;
 					_box.Touched = true;
-					/// Play Sound when Ball hits the Tile
+					// Play Sound when Ball hits the Tile
 					impact.SoundPlay();
 				}
 			}
-			//GetAwayFromRightAngles();
+
+			GetAwayFromRightAngles();
 			posX += velX;
 			posY += velY;
 		}
@@ -185,7 +211,9 @@ namespace DXBall
 		}
 
 		private bool betweenTwoAngles(double value, double lowerValue, double upperValue)
-		{ return value >= lowerValue && value <= upperValue; }
+		{ 
+			return value >= lowerValue && value <= upperValue; 
+		}
 
 		/// <summary>
 		/// Increases the speed.
@@ -273,6 +301,7 @@ namespace DXBall
 		public void PutBall()
 		{
 			float move_start = 0f;
+
 			while (move_start <= vel)
 			{
 				DeterminateMove();
@@ -296,8 +325,21 @@ namespace DXBall
 		/// </summary>
 		public void ToStartPosition()
 		{
-			posX = _line.PosX + 56f;
 			posY = _line.PosY - 20f;
+
+			if (Math.Abs(_line.LineRectangle.Width - 64f) < 20f)
+			{
+				posX = _line.PosX + 23f;
+			}
+			if (Math.Abs(_line.LineRectangle.Width - 128f) < 20f)
+			{
+				posX = _line.PosX + 56f;
+			}
+			if (Math.Abs(_line.LineRectangle.Width - 256f) < 20f)
+			{
+				posX = _line.PosX + 112f;
+			}
+
 		}
 
 		public void AddRectangleOfLine(DXLine __line) 

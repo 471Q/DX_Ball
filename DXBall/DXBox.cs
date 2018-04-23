@@ -55,7 +55,11 @@ namespace DXBall
 
         public DXBox(BoxKind _kind, float _posX, float _posY)
         {
-            kind = _kind; posX = _posX; posY = _posY; Broken = false; Touched = false;
+            kind = _kind; 
+			posX = _posX; 
+			posY = _posY; 
+			Broken = false; 
+			Touched = false;
             _chooseResourcePicture(_kind);
             boxBrush = new TextureBrush(resPicture);
             boxRectangle = new RectangleF(posX, posY, 64f, 32f);
@@ -66,7 +70,8 @@ namespace DXBall
         {
             boxBrush.ResetTransform();
             boxBrush.TranslateTransform(posX, posY);
-            boxRectangle.X = posX; boxRectangle.Y = posY;
+            boxRectangle.X = posX; 
+			boxRectangle.Y = posY;
         }
 
         private void _chooseResourcePicture(BoxKind _kind)
