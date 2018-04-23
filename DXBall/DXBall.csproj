@@ -104,6 +104,9 @@
     <None Include="Resources\lengthenline.png" />
     <None Include="Resources\oneup.png" />
     <None Include="Resources\shortenline.png" />
+    <None Include="Resources\backButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
