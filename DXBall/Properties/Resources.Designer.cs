@@ -350,5 +350,6 @@ namespace DXBall.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
     }
 }
