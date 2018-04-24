@@ -9,8 +9,9 @@
     <Files>
       <File FileName="DXBall\DXCollectables.cs" Line="122" Column="4" />
       <File FileName="DXBall\Properties\Resources.resx" Line="1" Column="1" />
-      <File FileName="DXBall\Form1.cs" Line="213" Column="5" />
-      <File FileName="DXBall\DxSounds.cs" Line="1" Column="1" />
+      <File FileName="DXBall\Form1.cs" Line="445" Column="16" />
+      <File FileName="DXBall\DxSounds.cs" Line="30" Column="134" />
+      <File FileName="DXBall\Ball.cs" Line="150" Column="55" />
       <File FileName="DX_Ball Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

@@ -12,67 +12,13 @@ namespace DXBall
 	{
 		private float posX, posY, velX, velY, vel, detVel, maxVel;
 		private double angle;
-
-		public float PosX 
-        { 
-            get { return posX; }
-        }
-		public float PosY
-        { 
-            get { return posY; } 
-        }
-		public float MaxVelocity
-        { 
-            get { return maxVel; } 
-            set { maxVel = value; }
-        }
-		public double Angle 
-        { 
-            get { return angle; } 
-        }
-		public bool FalledDown 
-        { 
-            get;
-            set;
-        }
-		public bool AtStartPosition
-        { 
-            get;
-            set; 
-        }
 		private TextureBrush ballBrush;
 		private RectangleF ballRectangle;
 		private List<DXBox> _boxes;
 		private List<Collectables> _collectables;
 		private DXLine _line;
-		public TextureBrush BallBrush 
-        { 
-            get { return ballBrush; } 
-        }
-		public RectangleF BallRectangle 
-        { 
-            get { return ballRectangle; }
-        }
-		public List<RectangleF> OtherRectangles 
-        { 
-            get; 
-            set; 
-        }
-		public List<DXBox> Boxes 
-        { 
-            get { return _boxes; }
-            set { _boxes = value; }
-        }
-
-		public List<Collectables> Collectables
-		{
-			get { return _collectables; }
-			set { _collectables = value; }
-		}
-
 		public event EventHandler BrokeBox;
 		public event EventHandler TouchLine;
-
 		private Bitmap resPicture;
 		private bool touchedLine;
 
@@ -197,17 +143,17 @@ namespace DXBall
 			double _angle = angle % (2 * Math.PI);
 			if (_angle < 0) _angle += 2 * Math.PI;
 
-			//between 0 and 10, between 90 and 100, between 180 and 190, 270 and 280 degrees change angle to angle plus 1.15radian
-			if (betweenTwoAngles(_angle, 0, Math.PI / 18) ||
-				betweenTwoAngles(_angle, Math.PI / 2, 10 * Math.PI / 18) ||
-				betweenTwoAngles(_angle, Math.PI, 19 * Math.PI / 18) ||
-				betweenTwoAngles(_angle, 3 * Math.PI / 2, 28 * Math.PI / 18)) ChangeAngle(angle + 0.02);
+			//between 0 and 5, between 90 and 105, between 180 and 185, 270 and 275 degrees change angle to angle plus 1.15radian
+			if (betweenTwoAngles(_angle, 0, Math.PI / 36) ||
+				betweenTwoAngles(_angle, Math.PI / 2, 21 * Math.PI / 36) ||
+				betweenTwoAngles(_angle, Math.PI, 19 * Math.PI / 37) ||
+				betweenTwoAngles(_angle, 3 * Math.PI / 2, 55 * Math.PI / 36)) ChangeAngle(angle + 0.02);
 
-			//between 350 and 360, between 80 and 90, between 170 and 180, between 260 and 270  angle minus 1.15radian
-			else if (betweenTwoAngles(_angle, 35 * Math.PI / 18, 2 * Math.PI) ||
-				betweenTwoAngles(_angle, 8 * Math.PI / 18, Math.PI / 2) ||
-				betweenTwoAngles(_angle, 17 * Math.PI / 18, Math.PI) ||
-				betweenTwoAngles(_angle, 26 * Math.PI / 18, 3 * Math.PI / 2)) ChangeAngle(angle - 0.02);
+			//between 355 and 360, between 85 and 90, between 175 and 180, between 265 and 270  angle minus 1.15radian
+			else if (betweenTwoAngles(_angle, 71 * Math.PI / 36, 2 * Math.PI) ||
+				betweenTwoAngles(_angle, 17 * Math.PI / 36, Math.PI / 2) ||
+				betweenTwoAngles(_angle, 35 * Math.PI / 36, Math.PI) ||
+				betweenTwoAngles(_angle, 53 * Math.PI / 36, 3 * Math.PI / 2)) ChangeAngle(angle - 0.02);
 		}
 
 		private bool betweenTwoAngles(double value, double lowerValue, double upperValue)
@@ -354,6 +300,58 @@ namespace DXBall
 				OtherRectangles.Add(_wall.WallRectangle);
 			}
 		}
+
+		public float PosX
+		{
+			get { return posX; }
+		}
+		public float PosY
+		{
+			get { return posY; }
+		}
+		public float MaxVelocity
+		{
+			get { return maxVel; }
+			set { maxVel = value; }
+		}
+		public double Angle
+		{
+			get { return angle; }
+		}
+		public bool FalledDown
+		{
+			get;
+			set;
+		}
+		public bool AtStartPosition
+		{
+			get;
+			set;   
+		}
+
+		public TextureBrush BallBrush
+		{
+			get { return ballBrush; }
+		}
+		public RectangleF BallRectangle
+		{
+			get { return ballRectangle; }
+		}
+		public List<RectangleF> OtherRectangles
+		{
+			get;
+			set;
+		}
+		public List<DXBox> Boxes
+		{
+			get { return _boxes; }
+			set { _boxes = value; }
+		}
+
+		public List<Collectables> Collectables
+		{
+			get { return _collectables; }
+			set { _collectables = value; }		}
 
 		~Ball() { GC.Collect(); }
 	}
