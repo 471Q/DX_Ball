@@ -5,15 +5,16 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.DXBall PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DX_Ball Status">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DXBall\Form1.cs">
     <Files>
       <File FileName="DXBall\DXCollectables.cs" Line="122" Column="4" />
-      <File FileName="DXBall\Properties\Resources.resx" Line="1" Column="1" />
-      <File FileName="DXBall\Form1.cs" Line="175" Column="26" />
-      <File FileName="DXBall\DxSounds.cs" Line="30" Column="134" />
+      <File FileName="DXBall\Properties\Resources.resx" Line="165" Column="10" />
+      <File FileName="DXBall\Properties\Resources.Designer.cs" Line="1" Column="1" />
+      <File FileName="DXBall\BackgroundPage.cs" Line="26" Column="39" />
+      <File FileName="DXBall\Form1.cs" Line="485" Column="106" />
+      <File FileName="DXBall\DxSounds.cs" Line="33" Column="4" />
       <File FileName="DXBall\Ball.cs" Line="150" Column="55" />
       <File FileName="DXBall\DXLine.cs" Line="62" Column="5" />
-      <File FileName="DX_Ball Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />

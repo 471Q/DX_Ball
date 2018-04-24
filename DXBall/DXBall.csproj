@@ -107,6 +107,7 @@
     <None Include="Resources\backButton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Compile Include="BackgroundPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
