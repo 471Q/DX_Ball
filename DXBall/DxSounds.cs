@@ -11,6 +11,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
 using System.Media;
+using System.IO;
 
 namespace DXBall
 {
@@ -27,9 +28,12 @@ namespace DXBall
 		/// </summary>
 		public void SoundPlay()
 		{
-			System.Media.SoundPlayer player = new System.Media.SoundPlayer("C:\\Users\\User\\Desktop\\DP1\\DX_Ball\\DXBall\\Resources\\Hit.wav");
+			string filepath = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString() + @"\Resources\Hit.wav";
+			SoundPlayer player = new SoundPlayer(filepath);
 			player.Load();
 			player.Play();
 		}
+
 	}
-}
+	}
+
