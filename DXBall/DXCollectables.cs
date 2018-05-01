@@ -50,6 +50,10 @@ namespace DXBall
 					{
 						coll.Add(new MultiBall(112f + _j * 65f, 190f + _i * 31f));
 					}
+					else if (i == 4 && j == 8)
+					{
+						coll.Add(new CatchBallCollection(112f + _j* 64f, 188f + _i* 30f));
+					}
 					j++;
 				}
 				i++;
@@ -86,6 +90,14 @@ namespace DXBall
 					{
 						coll.Add(new MultiBall(112f + _j* 65f, 190f + _i* 31f));
 					}
+					else if (i == 5 && j == 6)
+					{
+						coll.Add(new CatchBallCollection(112f + _j* 64f, 189f + _i* 30f));
+					}
+					else if (i == 5 && j == 6)
+					{
+						coll.Add(new CatchBallCollection(112f + _j* 64f, 189f + _i* 30f));
+					}
 					j++;
 				}
 				i++;
@@ -120,6 +132,10 @@ namespace DXBall
 					else if (i == 11 && j == 1)
 					{
 						coll.Add(new MultiBall(112f + _j* 65f, 190f + _i* 31f));
+					}
+					else if (i == 5 && j == 10)
+					{
+						coll.Add(new CatchBallCollection(112f + _j* 64f, 189f + _i* 30f));
 					}
 					j++;
 				}
@@ -156,7 +172,10 @@ namespace DXBall
 					{
 						coll.Add(new MultiBall(112f + _j* 65f, 190f + _i* 31f));
 					}
-
+					else if (i == 7 && j == 5)
+					{
+						coll.Add(new CatchBallCollection(112f + _j* 64f, 187f + _i* 31f));
+					}
 					j++;
 				}
 				i++;

@@ -110,6 +110,8 @@
     <Compile Include="BackgroundPage.cs" />
     <Compile Include="MultiBall.cs" />
     <None Include="Resources\multiball.png" />
+    <Compile Include="CatchBallCollection.cs" />
+    <None Include="Resources\CatchBallicon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
