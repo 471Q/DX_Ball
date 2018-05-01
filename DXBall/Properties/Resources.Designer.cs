@@ -134,6 +134,16 @@ namespace DXBall.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CatchBall {
+            get {
+                object obj = ResourceManager.GetObject("CatchBall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cyanbox {
             get {
                 object obj = ResourceManager.GetObject("cyanbox", resourceCulture);
@@ -281,18 +291,6 @@ namespace DXBall.Properties {
             }
         }
         
-		/// <summary>
-		///   Looks up a localized resource of type System.Drawing.Bitmap.
-		/// </summary>
-		internal static System.Drawing.Bitmap CatchBall
-		{
-			get
-			{
-				object obj = ResourceManager.GetObject("CatchBall", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -349,6 +347,16 @@ namespace DXBall.Properties {
         internal static System.Drawing.Bitmap shortenline {
             get {
                 object obj = ResourceManager.GetObject("shortenline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap speed {
+            get {
+                object obj = ResourceManager.GetObject("speed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

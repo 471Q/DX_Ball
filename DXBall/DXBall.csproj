@@ -112,6 +112,8 @@
     <None Include="Resources\multiball.png" />
     <Compile Include="CatchBallCollection.cs" />
     <None Include="Resources\CatchBallicon.png" />
+    <Compile Include="Speed.cs" />
+    <None Include="Resources\speed.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -50,6 +50,10 @@ namespace DXBall
 					{
 						coll.Add(new MultiBall(112f + _j * 65f, 190f + _i * 31f));
 					}
+					else if (i == 7 && j == 2)
+					{
+						coll.Add(new Speed(112f + _j * 64f, 190f + _i * 32f));
+					}
 					else if (i == 4 && j == 8)
 					{
 						coll.Add(new CatchBallCollection(112f + _j* 64f, 188f + _i* 30f));
@@ -171,6 +175,10 @@ namespace DXBall
 					else if (i == 9 && j == 2)
 					{
 						coll.Add(new MultiBall(112f + _j* 65f, 190f + _i* 31f));
+					}
+					else if (i == 7 && j == 2)
+					{
+						coll.Add(new Speed(112f + _j * 64f, 190f + _i * 32f));
 					}
 					else if (i == 7 && j == 5)
 					{
