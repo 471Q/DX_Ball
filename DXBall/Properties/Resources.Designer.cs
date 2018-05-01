@@ -264,6 +264,16 @@ namespace DXBall.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap multiball {
+            get {
+                object obj = ResourceManager.GetObject("multiball", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap oneup {
             get {
                 object obj = ResourceManager.GetObject("oneup", resourceCulture);

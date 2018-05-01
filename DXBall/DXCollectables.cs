@@ -46,6 +46,10 @@ namespace DXBall
 					{
 						coll.Add(new ShortenLine(112f + _j * 64f, 190f + _i * 32f));
 					}
+					else if (i == 7 && j == 3)
+					{
+						coll.Add(new MultiBall(112f + _j * 65f, 190f + _i * 31f));
+					}
 					j++;
 				}
 				i++;
@@ -78,6 +82,10 @@ namespace DXBall
 					{
 						coll.Add(new ShortenLine(112f + _j * 64f, 190f + _i * 32f));
 					}
+					else if (i == 9 && j == 0)
+					{
+						coll.Add(new MultiBall(112f + _j* 65f, 190f + _i* 31f));
+					}
 					j++;
 				}
 				i++;
@@ -108,6 +116,10 @@ namespace DXBall
 					else if (i == 2 && j == 6)
 					{
 						coll.Add(new ShortenLine(112f + _j * 64f, 190f + _i * 32f));
+					}
+					else if (i == 11 && j == 1)
+					{
+						coll.Add(new MultiBall(112f + _j* 65f, 190f + _i* 31f));
 					}
 					j++;
 				}
@@ -140,6 +152,11 @@ namespace DXBall
 					{
 						coll.Add(new ShortenLine(112f + _j * 64f, 190f + _i * 32f));
 					}
+					else if (i == 9 && j == 2)
+					{
+						coll.Add(new MultiBall(112f + _j* 65f, 190f + _i* 31f));
+					}
+
 					j++;
 				}
 				i++;

@@ -47,9 +47,9 @@ namespace DXBall
 
 		public abstract void Effect();
 
-		private bool betweenTwoAngles(double value, double lowerValue, double upperValue)
+		private bool isInside(float _posX, float _posY, float left, float right, float bottom, float top)
 		{
-			return value >= lowerValue && value <= upperValue;
+			return _posX >= left && _posX <= right && _posY <= bottom && _posY >= top;
 		}
 
 		public bool CollectionCheck(RectangleF rect)
@@ -58,11 +58,7 @@ namespace DXBall
 
 			rect = line.LineRectangle;
 
-			if (betweenTwoAngles(posX, rect.Left, rect.Right) && betweenTwoAngles(posY, rect.Top - 5f, rect.Bottom) && (this is LengthenLine || this is ShortenLine))
-			{
-				collected = true;
-			}
-			else if ((betweenTwoAngles(posX, rect.Left, rect.Right) && betweenTwoAngles(posY, rect.Top - 26f, rect.Bottom)) && this is OneUp)
+			if (isInside(posX, posY, rect.Left, rect.Right, rect.Bottom, rect.Top - 5f))
 			{
 				collected = true;
 			}

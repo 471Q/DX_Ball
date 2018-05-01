@@ -108,6 +108,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Compile Include="BackgroundPage.cs" />
+    <Compile Include="MultiBall.cs" />
+    <None Include="Resources\multiball.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

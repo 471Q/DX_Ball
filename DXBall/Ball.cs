@@ -8,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 namespace DXBall
 {
-	class Ball
+	public class Ball
 	{
 		private float posX, posY, velX, velY, vel, detVel, maxVel;
 		private double angle;
@@ -120,6 +120,7 @@ namespace DXBall
 						{
 							c.AtStartPosition = false;
 						}
+						
 					}
 
 					OnBrokeBox(_box);
@@ -301,28 +302,47 @@ namespace DXBall
 			}
 		}
 
+		public float VelX
+		{
+			get { return velX; }
+			set { velX = value; }
+		}
+
+		public float VelY
+		{
+			get { return velY; }
+			set { velY = value; }
+		}
+
 		public float PosX
 		{
 			get { return posX; }
+			set { posX = value;}
 		}
+
 		public float PosY
 		{
 			get { return posY; }
+			set { posY = value; }
 		}
+
 		public float MaxVelocity
 		{
 			get { return maxVel; }
 			set { maxVel = value; }
 		}
+
 		public double Angle
 		{
 			get { return angle; }
 		}
+
 		public bool FalledDown
 		{
 			get;
 			set;
 		}
+
 		public bool AtStartPosition
 		{
 			get;
@@ -333,15 +353,18 @@ namespace DXBall
 		{
 			get { return ballBrush; }
 		}
+
 		public RectangleF BallRectangle
 		{
 			get { return ballRectangle; }
 		}
+
 		public List<RectangleF> OtherRectangles
 		{
 			get;
 			set;
 		}
+
 		public List<DXBox> Boxes
 		{
 			get { return _boxes; }

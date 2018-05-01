@@ -19,5 +19,6 @@ namespace DXBall
 		}
 
 		public override void Effect(){ }
+
 	}
 }

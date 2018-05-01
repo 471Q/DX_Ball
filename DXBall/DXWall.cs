@@ -9,7 +9,7 @@ namespace DXBall
 {
 	public enum WallType { Vertical, Horizontal }
 
-	class DXWall
+	public class DXWall
 	{
 		private float posX, posY;
 		private TextureBrush wallBrush;

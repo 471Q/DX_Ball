@@ -7,15 +7,18 @@
   <MonoDevelop.Ide.ItemProperties.DXBall PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DX_Ball Status">
     <Files>
-      <File FileName="DXBall\DXCollectables.cs" Line="122" Column="4" />
-      <File FileName="DXBall\Properties\Resources.resx" Line="165" Column="10" />
-      <File FileName="DXBall\Properties\Resources.Designer.cs" Line="1" Column="1" />
-      <File FileName="DXBall\BackgroundPage.cs" Line="26" Column="33" />
-      <File FileName="DXBall\Form1.cs" Line="932" Column="7" />
-      <File FileName="DXBall\DxSounds.cs" Line="33" Column="4" />
-      <File FileName="DXBall\Ball.cs" Line="150" Column="55" />
-      <File FileName="DXBall\DXLine.cs" Line="62" Column="5" />
-      <File FileName="DX_Ball Status" />
+      <File FileName="DXBall\DXCollectables.cs" Line="155" Column="31" />
+      <File FileName="DXBall\Form1.cs" Line="760" Column="14" />
+      <File FileName="DXBall\DxSounds.cs" Line="38" Column="1" />
+      <File FileName="DXBall\Ball.cs" Line="275" Column="1" />
+      <File FileName="DXBall\DXLine.cs" Line="26" Column="38" />
+      <File FileName="DXBall\DXLevels.cs" Line="48" Column="7" />
+      <File FileName="DXBall\MultiBall.cs" Line="34" Column="36" NotebookId="1" />
+      <File FileName="DXBall\LengthenLine.cs" Line="19" Column="4" NotebookId="1" />
+      <File FileName="DXBall\OneUp.cs" Line="22" Column="1" NotebookId="1" />
+      <File FileName="DXBall\Collectables.cs" Line="48" Column="33" NotebookId="1" />
+      <File FileName="DXBall\ShortenLine.cs" Line="19" Column="4" NotebookId="1" />
+      <File FileName="DX_Ball Status" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />

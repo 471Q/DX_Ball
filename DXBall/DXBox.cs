@@ -13,7 +13,7 @@ namespace DXBall
         Red, Green, Blue, Purple, Yellow, Cyan, DarkRed, DarkGreen, DarkBlue, DarkGray, Gray, White
     }
 
-    class DXBox
+    public class DXBox
     {
         private float posX, posY;
         public float PosX 
