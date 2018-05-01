@@ -114,6 +114,10 @@
     <None Include="Resources\CatchBallicon.png" />
     <Compile Include="Speed.cs" />
     <None Include="Resources\speed.png" />
+    <None Include="Resources\cursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="CustomCursor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
