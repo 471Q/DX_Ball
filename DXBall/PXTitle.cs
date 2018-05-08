@@ -108,9 +108,9 @@ namespace DXBall
             titleBrush.LinearColors = new Color[2] { Color.FromArgb(alpha, color1), Color.FromArgb(alpha, color2) };
         }
 
-        public void DecreaseAlpha(int min)
+        public void DecreaseAlpha(int dec, int min)
         {
-            if (alpha > min) alpha--;
+            if (alpha > min) alpha -= dec;
             titleBrush.LinearColors = new Color[2] { Color.FromArgb(alpha, color1), Color.FromArgb(alpha, color2) };
         }
 
