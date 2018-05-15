@@ -44,15 +44,36 @@ namespace DXBall
 			f.scores = new List<string>();
 			int check = f.scores.Count;
 
-			Assert.AreEqual(check, f.scores.Count,"initally the score has no score in it");
+			Assert.AreEqual(check, f.scores.Count, "initally the score has no score in it");
 
 			f.scores.Add("atiq");
 			f.scores.Add("islam");
 
 			check = f.scores.Count;
 
-			Assert.AreEqual(check, f.scores.Count,"after adding two new players the count should be 2");
-	
+			Assert.AreEqual(check, f.scores.Count, "after adding two new players the count should be 2");
+
 		}
+		/// <summary>
+		/// Move line test.
+		/// </summary>
+		[Test()]
+		public void moveLineTest()
+		{
+			DXLine line = new DXLine(70, 0);
+
+			float temp = line.PosX;
+			line.MoveRight = true;
+			line.MoveLine();
+			Assert.AreEqual(line.PosX, temp + 20);
+
+			line.MoveRight = false;
+
+			temp = line.PosX;
+			line.MoveLeft = true;
+			line.MoveLine();
+			Assert.AreEqual(line.PosX, temp - 20);
+		}
+	
 	}
 }
