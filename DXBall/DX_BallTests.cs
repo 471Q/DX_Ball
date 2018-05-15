@@ -36,5 +36,23 @@ namespace DXBall
 
 			Assert.IsTrue(c.Collected);
 		}
+		[Test()]
+		public void CheckHighScoreNameList()
+		{
+			Form1 f = new Form1();
+
+			f.scores = new List<string>();
+			int check = f.scores.Count;
+
+			Assert.AreEqual(check, f.scores.Count,"initally the score has no score in it");
+
+			f.scores.Add("atiq");
+			f.scores.Add("islam");
+
+			check = f.scores.Count;
+
+			Assert.AreEqual(check, f.scores.Count,"after adding two new players the count should be 2");
+	
+		}
 	}
 }
