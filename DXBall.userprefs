@@ -5,7 +5,7 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.DXBall PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DX_Ball Status">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DXBall\DX_BallTests.cs">
     <Files>
       <File FileName="DXBall\DXCollectables.cs" Line="56" Column="7" />
       <File FileName="DXBall\Form1.cs" Line="104" Column="26" />
@@ -22,7 +22,7 @@
       <File FileName="DXBall\Speed.cs" Line="26" Column="2" />
       <File FileName="DXBall\Properties\Resources.resx" Line="231" Column="8" />
       <File FileName="DXBall\CatchBallCollection.cs" Line="1" Column="1" />
-      <File FileName="DX_Ball Status" />
+      <File FileName="DXBall\DX_BallTests.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
